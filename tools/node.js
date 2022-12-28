@@ -1,24 +1,20 @@
 var fs = require("fs");
 
-exports.FILES = [
-    require.resolve("../lib/utils.js"),
-    require.resolve("../lib/ast.js"),
-    require.resolve("../lib/transform.js"),
-    require.resolve("../lib/parse.js"),
-    require.resolve("../lib/scope.js"),
-    require.resolve("../lib/compress.js"),
-    require.resolve("../lib/output.js"),
-    require.resolve("../lib/sourcemap.js"),
-    require.resolve("../lib/mozilla-ast.js"),
-    require.resolve("../lib/propmangle.js"),
-    require.resolve("../lib/minify.js"),
-    require.resolve("./exports.js"),
-];
-
 new Function("domprops", "exports", function() {
-    var code = exports.FILES.map(function(file) {
-        return fs.readFileSync(file, "utf8");
-    });
+    var code = [
+      fs.readFileSync(__dirname + "/../lib/utils.js", "utf8"),
+      fs.readFileSync(__dirname + "/../lib/ast.js", "utf8"),
+      fs.readFileSync(__dirname + "/../lib/transform.js", "utf8"),
+      fs.readFileSync(__dirname + "/../lib/parse.js", "utf8"),
+      fs.readFileSync(__dirname + "/../lib/scope.js", "utf8"),
+      fs.readFileSync(__dirname + "/../lib/compress.js", "utf8"),
+      fs.readFileSync(__dirname + "/../lib/output.js", "utf8"),
+      fs.readFileSync(__dirname + "/../lib/sourcemap.js", "utf8"),
+      fs.readFileSync(__dirname + "/../lib/mozilla-ast.js", "utf8"),
+      fs.readFileSync(__dirname + "/../lib/propmangle.js", "utf8"),
+      fs.readFileSync(__dirname + "/../lib/minify.js", "utf8"),
+      fs.readFileSync(__dirname + "/exports.js", "utf8")
+    ];
     code.push("exports.describe_ast = " + describe_ast.toString());
     return code.join("\n\n");
 }())(require("./domprops.json"), exports);
