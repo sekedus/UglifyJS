@@ -1,6 +1,7 @@
 {
   "name": "uglify-js",
   "description": "JavaScript parser, mangler/compressor and beautifier toolkit",
+  "homepage": "https://github.com/mishoo/UglifyJS",
   "author": "Mihai Bazon <mihai.bazon@gmail.com> (http://lisperator.net/)",
   "license": "BSD-2-Clause",
   "version": "3.17.4",
